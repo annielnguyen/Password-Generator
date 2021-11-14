@@ -28,6 +28,10 @@ function randomCharacter(number) {
     return String.fromCharCode(Math.floor(((Math.random()*26)+65))); 
   } else if( number == 1){
     return String.fromCharCode(Math.floor(((Math.random()*26)+97))); 
+  } else if( number == 2){
+    var special_array = ["!","@","#","$","%","^","&","*","(",")","~"];
+    return special_array[Math.floor(Math.random() * special_array.length-1)];
+
   }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
