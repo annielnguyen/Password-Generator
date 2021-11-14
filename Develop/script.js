@@ -23,6 +23,30 @@ function writePassword() {
 
 }
 
+function generatePassword(length,special,numbers,uppercase,lowercase){
+  var password ="";
+  var password_options= [];
+    if (uppercase){
+      password_options.push(0)
+    }
+    if (lowercase){
+      password_options.push(1)
+    }
+    if (special){
+      password_options.push(2)
+    }
+    if (numbers){
+      password_options.push(3)
+    }
+    console.log(password_options)
+      for (var i = 0; i < length; i++){
+    var random_char = randomCharacter(password_options[Math.floor(Math.random()*password_options -1)]);
+    console.log(Math.floor(Math.random()*password_options.length -1))
+        password= password+ random_char
+    }
+    return password;
+  }
+
 function randomCharacter(number) {
   if( number == 0) {
     return String.fromCharCode(Math.floor(((Math.random()*26)+65))); 
@@ -33,6 +57,12 @@ function randomCharacter(number) {
     return special_array[Math.floor(Math.random() * special_array.length-1)];
 
   }
+  else if( number == 3) {
+    var number_array = ["1","2","3","4","5","6","7","8","9"];
+    return number_array[Math.floor(Math.random () * number_array-1)];
+  }
+
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
