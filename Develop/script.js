@@ -9,6 +9,10 @@ function writePassword() {
           alert (length + " is not a valid option. Please try again." );
           return;
       }
+  var special = confirm("Would you like SPECIAL CHARACTERS in your password?");
+  var numbers = confirm("Would you like NUMBERS in your password?");
+  var uppercase = confirm("Would you like UPPERCASE letters in your password?");
+  var lowercase = confirm("Would you like LOWERCASE letters in your password?");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
