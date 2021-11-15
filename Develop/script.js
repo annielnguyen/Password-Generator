@@ -57,13 +57,13 @@ function randomCharacter(number) {
   } else if( number == 2){
     var special_array = [ '!','#','$','%','&','`','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[',"\\",`]`,`^` , `_`,`{`,`|`,`}`,`~`,`]` ]
   //random selection of special characters from array starting with first index
-    return special_array[Math.floor(Math.random() * special_array.length-1)];
+    return special_array[Math.floor(Math.random() * (special_array.length-1))];
 
   }
   else if( number == 3) {
 //random selection of a number from the array starting at first index
     var number_array = ["1","2","3","4","5","6","7","8","9"];
-    return number_array[Math.floor(Math.random () * number_array-1)];
+    return number_array[Math.floor(Math.random () * (number_array-1))];
   }
 
 }
