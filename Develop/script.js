@@ -2,7 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
   function writePassword() {
     var length = prompt("Please enter how many characters you'd like in your password"); 
       if (length < 8 || length > 128 ){
@@ -13,14 +12,14 @@ function writePassword() {
   var numbers = confirm("Would you like NUMBERS in your password?");
   var uppercase = confirm("Would you like UPPERCASE letters in your password?");
   var lowercase = confirm("Would you like LOWERCASE letters in your password?");
-  if (special || numbers || uppercase || lowercase){
-    var password = generatePassword(length,special,numbers,uppercase,lowercase);
-    var passwordText = document.querySelector("#password");
+    if (special || numbers || uppercase || lowercase){
+      var password = generatePassword(length,special,numbers,uppercase,lowercase);
+      var passwordText = document.querySelector("#password");
     passwordText.value = password;
 }else { 
   alert ("Please select at least one field.");
   return;
-
+   }
 }
 
 function generatePassword(length,special,numbers,uppercase,lowercase){
@@ -38,11 +37,9 @@ function generatePassword(length,special,numbers,uppercase,lowercase){
     if (numbers){
       password_options.push(3)
     }
-    console.log(password_options)
-      for (var i = 0; i < length; i++){
-    var random_char = randomCharacter(password_options[Math.floor(Math.random()*password_options -1)]);
-    console.log(Math.floor(Math.random()*password_options.length -1))
-        password= password+ random_char
+    for (var i = 0; i < length; i++){
+      var random_char = randomCharacter(password_options[Math.floor(Math.random()*(password_options.length -1))]);
+      password= password+ random_char
     }
     return password;
   }
@@ -53,7 +50,7 @@ function randomCharacter(number) {
   } else if( number == 1){
     return String.fromCharCode(Math.floor(((Math.random()*26)+97))); 
   } else if( number == 2){
-    var special_array = ["!","@","#","$","%","^","&","*","(",")","~"];
+    var special_array = [ '!','#','$','%','&','`','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[',"\\",`]`,`^` , `_`,`{`,`|`,`}`,`~`,`]` ]
     return special_array[Math.floor(Math.random() * special_array.length-1)];
 
   }
