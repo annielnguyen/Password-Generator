@@ -4,10 +4,12 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
   function writePassword() {
     var length = prompt("Please enter how many characters you'd like in your password"); 
+//Check if password length is within the range specified
       if (length < 8 || length > 128 ){
           alert (length + " is not a valid option. Please try again." );
           return;
       }
+//Prompts for each variable
   var special = confirm("Would you like SPECIAL CHARACTERS in your password?");
   var numbers = confirm("Would you like NUMBERS in your password?");
   var uppercase = confirm("Would you like UPPERCASE letters in your password?");
@@ -16,6 +18,7 @@ var generateBtn = document.querySelector("#generate");
       var password = generatePassword(length,special,numbers,uppercase,lowercase);
       var passwordText = document.querySelector("#password");
     passwordText.value = password;
+//Check if they selected at least one character type
 }else { 
   alert ("Please select at least one field.");
   return;
@@ -46,21 +49,25 @@ function generatePassword(length,special,numbers,uppercase,lowercase){
 
 function randomCharacter(number) {
   if( number == 0) {
+  //random selection of uppercase letters starting with first letter of alphabet
     return String.fromCharCode(Math.floor(((Math.random()*26)+65))); 
   } else if( number == 1){
+  //random selection of lowercase letters starting with first letter of alphabet
     return String.fromCharCode(Math.floor(((Math.random()*26)+97))); 
   } else if( number == 2){
     var special_array = [ '!','#','$','%','&','`','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[',"\\",`]`,`^` , `_`,`{`,`|`,`}`,`~`,`]` ]
+  //random selection of special characters from array starting with first index
     return special_array[Math.floor(Math.random() * special_array.length-1)];
 
   }
   else if( number == 3) {
+//random selection of a number from the array starting at first index
     var number_array = ["1","2","3","4","5","6","7","8","9"];
     return number_array[Math.floor(Math.random () * number_array-1)];
   }
 
 }
-// Add event listener to generate button
+//Generating password
 generateBtn.addEventListener("click", writePassword);
 
 // GIVEN I need a new, secure password
