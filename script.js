@@ -24,7 +24,7 @@ var generateBtn = document.querySelector("#generate");
   return;
    }
 }
-
+//generating password; if user selects a critera, the criteria gets added to end of array and returns the new length of array aka the password
 function generatePassword(length,special,numbers,uppercase,lowercase){
   var password ="";
   var password_options= [];
